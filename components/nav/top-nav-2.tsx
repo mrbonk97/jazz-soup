@@ -37,9 +37,9 @@ export const TopnavLocation = ({ selectedLocation }: Props) => {
   return (
     <section
       ref={ref}
-      className="fixed z-10 top-20 p-5 px-10 h-32 w-full bg-custom-2 flex2 duration-300"
+      className="hidden md:flex items-center justify-center fixed z-10 top-20 p-5 px-10 w-full bg-custom-2 duration-300"
     >
-      <ul className="flex2 flex-wrap gap-4 text-sm font-bold lg:max-w-[1200px]">
+      <ul className="flex2 flex-wrap gap-2 lg:gap-4 text-sm font-bold lg:max-w-[1200px]">
         {LOCATION.map((item) => {
           return (
             <li

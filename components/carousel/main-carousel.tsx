@@ -44,7 +44,7 @@ export const MainCarousel = () => {
           </CarouselItem>
           <CarouselItem>
             <ItemCard
-              imageUrl="/images/carousel/main-carousel/full-shot-plus-sized-woman-stretching.jpg"
+              imageUrl="/images/carousel/main-carousel/beautiful-mountain-landscape.jpg"
               title="생각나는 제목3"
             />
           </CarouselItem>

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const Footer = () => {
   return (
-    <footer className="mt-40 py-10 w-full border-t bg-background flex items-center justify-center">
+    <footer className="mt-10 md:mt-40 py-10 w-full border-t bg-background flex items-center justify-center">
       <ul className="flex gap-5 text-sm">
         <li>
           <Link className="hover:underline underline-offset-2" href={"/policy"}>

@@ -23,12 +23,18 @@ export const Topnav = () => {
   return (
     <nav
       ref={ref}
-      className="fixed z-10 top-0 px-20 h-20 w-full flex items-center justify-between border-b bg-background duration-300"
+      className="fixed z-10 top-0 px-5 lg:px-20 h-20 w-full flex items-center justify-between border-b bg-background duration-300"
     >
       <Link href={"/"}>
-        <Image src={"/logo.png"} alt="logo" width={80} height={50} />
+        <Image
+          src={"/logo.png"}
+          alt="logo"
+          width={80}
+          height={50}
+          className="w-16"
+        />
       </Link>
-      <ul className="text-lg font-bold space-x-10">
+      <ul className="text-sm lg:text-lg font-bold space-x-5 lg:space-x-10">
         {TOP_MENU.map((item) => (
           <li key={item.url} className="inline">
             <Link
