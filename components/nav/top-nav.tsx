@@ -1,50 +1,79 @@
 "use client";
 import Link from "next/link";
 import { ProfileButton } from "./profile-button";
-import { Input } from "@/components/ui/input";
-import { SearchIcon } from "lucide-react";
-import { FormEvent, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
+import { TOP_MENU } from "@/constants";
+import Image from "next/image";
 
 export const Topnav = () => {
+  const pathName = usePathname();
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!ref.current) return;
+    let initScrollPos = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+      const currentScrollPos = window.scrollY;
+      ref.current!.style.top = initScrollPos > currentScrollPos ? "0" : "-80px";
+      initScrollPos = currentScrollPos;
+    });
+  }, []);
+
   return (
-    <nav className="z-10 fixed top-0 px-20 h-14 w-full flex items-center justify-between border-b bg-background/90">
-      <Link className="text-lg font-medium" href={"/"}>
-        JazzSoup
+    <nav
+      ref={ref}
+      className="fixed z-10 top-0 px-20 h-20 w-full flex items-center justify-between border-b bg-background duration-300"
+    >
+      <Link href={"/"}>
+        <Image src={"/logo.png"} alt="logo" width={80} height={50} />
       </Link>
-      <SearchButton />
+      <ul className="text-lg font-bold space-x-10">
+        {TOP_MENU.map((item) => (
+          <li key={item.url} className="inline">
+            <Link
+              aria-selected={pathName.startsWith(item.url)}
+              href={item.url}
+              className="hover:underline hover:text-custom-2 underline-offset-4 text-neutral-700 aria-selected:text-custom-2"
+            >
+              {item.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
       <ProfileButton />
     </nav>
   );
 };
 
-const SearchButton = () => {
-  const router = useRouter();
-  const inputRef = useRef<HTMLInputElement>(null);
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (inputRef.current == null || inputRef.current == undefined) return;
-    if (inputRef.current.value == "") return;
-    router.push(`/search?q=${inputRef.current.value}`);
-  };
+// const SearchButton = () => {
+//   const router = useRouter();
+//   const inputRef = useRef<HTMLInputElement>(null);
+//   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+//     e.preventDefault();
+//     if (inputRef.current == null || inputRef.current == undefined) return;
+//     if (inputRef.current.value == "") return;
+//     router.push(`/search?q=${inputRef.current.value}`);
+//   };
 
-  return (
-    <form className="relative" onSubmit={handleSubmit}>
-      <button
-        type="submit"
-        className="top-1/2 left-3 -translate-y-1/2 absolute"
-      >
-        <SearchIcon size={16} />
-      </button>
-      <label htmlFor="search" className="sr-only">
-        검색
-      </label>
-      <Input
-        id="search"
-        ref={inputRef}
-        className="pl-8 pr-4 max-w-96 rounded-full"
-        placeholder="키워드를 입력해주세요"
-      />
-    </form>
-  );
-};
+//   return (
+//     <form className="relative" onSubmit={handleSubmit}>
+//       <button
+//         type="submit"
+//         className="top-1/2 left-3 -translate-y-1/2 absolute"
+//       >
+//         <SearchIcon size={16} />
+//       </button>
+//       <label htmlFor="search" className="sr-only">
+//         검색
+//       </label>
+//       <Input
+//         id="search"
+//         ref={inputRef}
+//         className="pl-8 pr-4 max-w-96 rounded-full"
+//         placeholder="키워드를 입력해주세요"
+//       />
+//     </form>
+//   );
+// };

@@ -10,7 +10,7 @@ export const ConcertCalendar = () => {
         mode="single"
         selected={date}
         onSelect={setDate}
-        className="rounded-md border"
+        className="border inline-block"
       />
     </div>
   );

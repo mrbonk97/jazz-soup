@@ -10,7 +10,7 @@ import {
 
 export const ProfileButton = () => {
   return (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger>
         <Avatar>
           <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />

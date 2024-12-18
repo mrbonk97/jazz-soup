@@ -66,7 +66,7 @@ interface ItemCardProps {
 
 const ItemCard = ({ imageUrl, title }: ItemCardProps) => {
   return (
-    <article className="h-[450px] w-full relative">
+    <article className="h-[700px] w-full relative">
       <Image
         src={imageUrl}
         alt="mountail"
