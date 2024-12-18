@@ -2,8 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Pretendard Variable";
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/PretendardVariable.woff2") format("woff2-variations");
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Pretendard Variable", Helvetica, sans-serif;
 }
 
 @layer base {
@@ -33,6 +41,10 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+
+    --custom-1: 18 100% 98%;
+    --custom-2: 8 96% 58%;
+    --custom-3: 18 100% 81%;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -59,6 +71,10 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+
+    --custom-1: 18 100% 98%;
+    --custom-2: 8 96% 58%;
+    --custom-3: 18 100% 81%;
   }
 }
 
@@ -69,4 +85,10 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.flex2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
