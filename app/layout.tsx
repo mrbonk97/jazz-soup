@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Topnav } from "@/components/nav/top-nav";
 import { Footer } from "@/components/nav/footer";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "재즈수프",
@@ -15,6 +16,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <head>
+        <Script
+          type="text/javascript"
+          src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NAVER_MAP_CLIENT_ID}`}
+          strategy="beforeInteractive"
+        />
+      </head>
       <body className={"antialiased"}>
         <Topnav />
         {children}
