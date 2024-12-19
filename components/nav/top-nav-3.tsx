@@ -64,7 +64,7 @@ export const TopnavLocationSmall = ({ selectedLocation }: Props) => {
             </DrawerDescription>
           </DrawerHeader>
           <DrawerFooter>
-            <ul className="text-sm font-bold space-y-3 max-h-[600px] overflow-y-auto">
+            <ul className="text-sm font-bold space-y-3 max-h-[400px] overflow-y-auto">
               {LOCATION.map((item) => {
                 return (
                   <DrawerClose

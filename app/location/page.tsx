@@ -34,7 +34,7 @@ const LocationPage = ({ searchParams }: Props) => {
         </h1>
       </section>
       <section className="pt-0 p-5 w-full lg:max-w-[1200px]">
-        <ul className="grid border-b grid-cols-1 lg:grid-cols-2 gap-5">
+        <ul className="grid border-b grid-cols-1 lg:grid-cols-2 md:gap-5">
           {JAZZ_BAR.map((item) => (
             <JazzbarCard
               key={item.id}
@@ -74,7 +74,7 @@ const JazzbarCard = ({
   return (
     <li>
       <Link
-        className="relative p-3 md:p-5 border-t md:border rounded-none flex flex-col-reverse md:flex-row justify-between gap-0 md:gap-5 hover:bg-custom-1 md:hover:rounded-lg duration-300"
+        className="relative p-3 md:p-5 border-t md:border rounded-none flex flex-col-reverse md:flex-row justify-between md:justify-start gap-0 md:gap-5 hover:bg-custom-1 md:hover:rounded-lg duration-300"
         href={`/location/${id}`}
       >
         <HeartIcon
@@ -91,7 +91,7 @@ const JazzbarCard = ({
             width={256}
             className="h-32 w-32 md:h-52 md:w-52 rounded-lg"
           />
-          <ul className="flex flex-col gap-2 text-xs font-bold opacity-70">
+          <ul className="flex flex-col gap-0.5 text-xs font-bold opacity-70">
             <li className="md:hidden">{address1}</li>
             <li className="md:hidden">{contact}</li>
             <li className="md:hidden">10:30 ~ 22:30</li>
@@ -103,28 +103,32 @@ const JazzbarCard = ({
 
         <div>
           <hgroup>
-            <div className="">
+            <div>
               <h2 className="inline text-lg md:text-3xl font-bold md:font-medium opacity-80">
                 {title}
               </h2>
               <MapPin
-                className="ml-2 text-custom-2 text-xs inline"
+                className="md:hidden ml-2 text-custom-2 text-xs inline"
                 size={12}
                 strokeWidth={3}
               />
-              <span className="ml-0.5 font-medium text-sm opacity-70">
+              <span className="md:hidden ml-0.5 font-medium text-sm opacity-70">
                 마곡
               </span>
             </div>
             <p className="md:mt-1 text-sm font-medium opacity-70">
               {description}
             </p>
-            <ul className="mt-4 grid grid-cols-5 gap-x-2 text-sm opacity-80">
+            <ul className="mt-4 grid grid-cols-5 lg:gap-x-2 text-sm opacity-80">
               <li className="hidden md:block col-span-1">주소: </li>
-              <li className="hidden md:block col-span-4">{address1}</li>
+              <li className="hidden md:block col-span-4 w-20 whitespace-nowrap">
+                {address1}
+              </li>
               <li className="hidden md:block col-span-1">연락처: </li>
               <li className="hidden md:block col-span-4">{contact}</li>
-              <li className="hidden md:block col-span-1">영업시간: </li>
+              <li className="hidden md:block col-span-1 whitespace-nowrap">
+                영업시간:
+              </li>
               <li className="hidden md:block col-span-4">10:30 ~ 22:30</li>
             </ul>
           </hgroup>
