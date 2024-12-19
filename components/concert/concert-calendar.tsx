@@ -6,12 +6,7 @@ export const ConcertCalendar = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
   return (
     <div>
-      <Calendar
-        mode="single"
-        selected={date}
-        onSelect={setDate}
-        className="border inline-block"
-      />
+      <Calendar mode="single" selected={date} onSelect={setDate} />
     </div>
   );
 };
