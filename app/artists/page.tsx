@@ -8,8 +8,8 @@ const ArtistPage = () => {
     <main className="pt-20 flex flex-col items-center">
       <MainCarousel />
       {/* BANNER */}
-      <section className="w-full flex justify-center bg-[#014CBB]">
-        <h1 className="p-5 w-full max-w-[1500px] font-semibold text-custom-1">
+      <section className="w-full flex justify-center bg-custom-2">
+        <h1 className="p-5 w-full max-w-[1500px] font-semibold text-background">
           한국에서 활동 중인 아티스트를 소개합니다
         </h1>
       </section>

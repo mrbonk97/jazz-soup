@@ -78,9 +78,9 @@ const ItemCard = ({ imageUrl, title }: ItemCardProps) => {
         height={700}
         className="h-full object-cover"
       />
-      {/* <h3 className="pt-20 pr-10 text-center text-4xl font-bold text-white">
+      <h3 className="pt-20 pr-10 text-center text-4xl font-bold text-white">
         {title}
-      </h3> */}
+      </h3>
     </article>
   );
 };

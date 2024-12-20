@@ -47,7 +47,7 @@ export const TopnavLocation = ({ selectedLocation }: Props) => {
               role="button"
               onClick={() => handleClick(item)}
               aria-pressed={item == selectedLocation}
-              className="px-4 py-2 flex-shrink-0 rounded-md text-custom-1 hover:bg-custom-1 hover:text-custom-2 duration-150 aria-pressed:bg-custom-1 aria-pressed:text-custom-2 tracking-wider"
+              className="px-4 py-2 flex-shrink-0 rounded-md text-background hover:bg-background hover:text-custom-2 duration-150 aria-pressed:bg-background aria-pressed:text-custom-2 tracking-wider"
             >
               {item}
             </li>
