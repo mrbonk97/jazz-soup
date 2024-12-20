@@ -1,7 +1,6 @@
 import "./globals.css";
 import "./font.css";
 import type { Metadata } from "next";
-import { Topnav } from "@/components/nav/top-nav";
 import { Footer } from "@/components/nav/footer";
 import Script from "next/script";
 

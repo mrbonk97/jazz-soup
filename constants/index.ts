@@ -11,7 +11,7 @@ export const LOCATION = [
   "구로",
   "금천",
   "종로",
-  "중",
+  "중구",
   "동대문",
   "중랑",
   "마포",
@@ -36,8 +36,8 @@ export const TOP_MENU = [
     url: "/live",
   },
   {
-    title: "달력",
-    url: "/calendar",
+    title: "아티스트",
+    url: "/artists",
   },
 ];
 
