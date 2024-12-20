@@ -74,7 +74,7 @@ const JazzbarCard = ({
   return (
     <li>
       <Link
-        className="relative p-3 md:p-5 border-t md:border rounded-none flex flex-col-reverse md:flex-row justify-between md:justify-start gap-0 md:gap-5 hover:bg-custom-1 md:hover:rounded-lg duration-300"
+        className="relative p-3 md:p-5 border-t md:border rounded-none flex flex-col-reverse md:flex-row justify-between md:justify-start gap-0 md:gap-5 hover:bg-custom-1/20 md:hover:rounded-lg duration-300"
         href={`/location/${id}`}
       >
         <HeartIcon
