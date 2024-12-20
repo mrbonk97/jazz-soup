@@ -92,3 +92,16 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+@keyframes loop {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.banner-scroll {
+  animation: loop 30s linear infinite;
+}
