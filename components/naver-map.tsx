@@ -19,9 +19,6 @@ export const NaverMapDiv = () => {
   }, []);
 
   return (
-    <div
-      ref={ref}
-      className="mt-5 md:mt-5 h-96 md:h-[550px] w-full md:border rounded"
-    />
+    <div ref={ref} className="mt-5 md:mt-5 h-72 md:h-[550px] w-full rounded" />
   );
 };

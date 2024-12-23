@@ -8,20 +8,20 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center">
       {/* Upper Title Section */}
-      <section className="z-10 sticky top-0 h-32 md:h-48 w-full flex2 bg-background border-t-[20px] border-custom-2">
+      <section className="z-10 sticky top-0 w-full flex2 bg-custom-3 border-t-8 md:border-t-[20px] border-custom-2">
         <Image
           src={"/logo.png"}
           alt="logo"
           height={192}
           width={192}
-          className="w-32 md:w-48"
+          className="py-3 md:py-4 w-24 md:w-48"
         />
       </section>
       {/* Nav Button Section */}
-      <section className="w-full flex2 border-y">
+      <section className="w-full flex2 border-y text-sm md:text-xl">
         <nav className="p-5 py-2 md:py-5 w-full max-w-[1500px] flex items-center justify-between">
           <div className="hidden md:block" />
-          <ul className="flex gap-5 md:gap-20 text-sm md:text-xl eulyoo">
+          <ul className="flex gap-5 md:gap-20 font-medium">
             <li role="button">
               <Link
                 href={"/location"}

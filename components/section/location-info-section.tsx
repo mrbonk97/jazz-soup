@@ -18,8 +18,8 @@ export const LocationInfoSection = () => {
         className="w-full md:w-96 lg:w-auto md:h-auto object-cover"
       />
       <hgroup className="md:ml-5 w-full font-medium">
-        <div className="hidden md:block p-2 w-full bg-custom-1 tracking-wider">
-          <span className="opacity-80 font-bold">기본정보</span>
+        <div className="hidden md:block py-2 px-4 w-full bg-custom-2 text-background text-lg">
+          기본정보
         </div>
         {/* PC Only */}
         <div className="p-5 md:py-0 md:px-0">

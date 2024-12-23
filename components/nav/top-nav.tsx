@@ -12,10 +12,12 @@ export const Topnav = () => {
   useEffect(() => {
     if (!ref.current) return;
     let initScrollPos = window.scrollY;
+    const navHeight = ref.current.offsetHeight;
 
     window.addEventListener("scroll", () => {
       const currentScrollPos = window.scrollY;
-      ref.current!.style.top = initScrollPos > currentScrollPos ? "0" : "-80px";
+      ref.current!.style.top =
+        initScrollPos > currentScrollPos ? "0" : `-${navHeight}px`;
       initScrollPos = currentScrollPos;
     });
   }, []);
@@ -23,7 +25,7 @@ export const Topnav = () => {
   return (
     <nav
       ref={ref}
-      className="fixed z-10 top-0 px-5 lg:px-20 h-20 w-full flex items-center justify-between border-b bg-background duration-300"
+      className="fixed z-10 top-0 px-5 md:px-20 h-14 md:h-20 w-full flex items-center justify-between border-b bg-background duration-300"
     >
       <Link href={"/"}>
         <Image
@@ -31,10 +33,10 @@ export const Topnav = () => {
           alt="logo"
           width={80}
           height={50}
-          className="w-16"
+          className="w-12 md:w-16"
         />
       </Link>
-      <ul className="text-sm lg:text-lg font-bold space-x-5 lg:space-x-10">
+      <ul className="text-xs lg:text-lg font-bold space-x-5 lg:space-x-10">
         {TOP_MENU.map((item) => (
           <li key={item.url} className="inline">
             <Link

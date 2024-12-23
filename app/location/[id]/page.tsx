@@ -26,7 +26,7 @@ const LocationDetailPage = () => {
   const data = JAZZ_BAR[0];
 
   return (
-    <main className="pt-20 flex flex-col items-center">
+    <main className="pt-14 md:pt-40 flex flex-col items-center">
       <LocationTitleSection title={data.title} />
       <LocationInfoSection />
       <LocationMapSection />

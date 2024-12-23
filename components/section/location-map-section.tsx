@@ -7,7 +7,7 @@ export const LocationMapSection = () => {
         지도
       </h3>
       <NaverMapDiv />
-      <p className="mt-2 text-sm text-center font-semibold opacity-70">
+      <p className="mt-5 text-sm text-center font-semibold opacity-70">
         서울 마포구 동교로23길 64 지하
       </p>
     </section>

@@ -35,7 +35,7 @@ export const TopnavLocationSmall = ({ selectedLocation }: Props) => {
       if (!ref.current) return;
       const currentScrollPos = window.scrollY;
       ref.current!.style.top =
-        initScrollPos > currentScrollPos ? "80px" : "0px";
+        initScrollPos > currentScrollPos ? "56px" : "0px";
       initScrollPos = currentScrollPos;
     };
 
@@ -48,9 +48,11 @@ export const TopnavLocationSmall = ({ selectedLocation }: Props) => {
   return (
     <section
       ref={ref}
-      className="flex items-center justify-between md:hidden fixed z-10 top-20 p-5 w-full text-custom-1 bg-custom-2 duration-300"
+      className="fixed z-10 top-14 px-5 py-2 w-full flex md:hidden items-center justify-between bg-custom-2 text-background duration-300"
     >
-      <h2 className="font-medium">현재 지역: {selectedLocation || "전체"}</h2>
+      <h2 className="text-sm font-medium">
+        현재 지역: {selectedLocation || "전체"}
+      </h2>
       <Drawer>
         <DrawerTrigger>
           <span className="sr-only">메뉴 열기 open menu</span>
@@ -64,7 +66,7 @@ export const TopnavLocationSmall = ({ selectedLocation }: Props) => {
             </DrawerDescription>
           </DrawerHeader>
           <DrawerFooter>
-            <ul className="text-sm font-bold space-y-3 max-h-[400px] overflow-y-auto">
+            <ul className="px-5 max-h-[400px] text-sm font-bold space-y-3 overflow-y-auto">
               {LOCATION.map((item) => {
                 return (
                   <DrawerClose
@@ -73,7 +75,7 @@ export const TopnavLocationSmall = ({ selectedLocation }: Props) => {
                     role="button"
                     onClick={() => handleClick(item)}
                     aria-pressed={item == selectedLocation}
-                    className="p-4 text-center rounded bg-custom-1 aria-pressed:bg-custom-2 aria-pressed:text-custom-1"
+                    className="p-4 text-center rounded bg-secondary aria-pressed:bg-custom-2 aria-pressed:text-background"
                   >
                     <li>{item}</li>
                   </DrawerClose>

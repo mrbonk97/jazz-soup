@@ -1,25 +1,53 @@
+"use client";
 import { ClubIcon } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 interface Props {
   title: string;
 }
 
 export const LocationTitleSection = ({ title }: Props) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  // 화면의 너비가 768 보다 작으면 상단바의 높이인 56px만큼 올림
+  // 그것보다 크면 80px만큼 올림
+  useEffect(() => {
+    if (!ref.current) return;
+    let initScrollPos = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+      if (!ref.current) return;
+
+      const currentScrollPos = window.scrollY;
+      const curWidth = window.innerWidth;
+      const height = curWidth < 768 ? 56 : 80;
+
+      ref.current!.style.top =
+        initScrollPos > currentScrollPos ? `${height}px` : `0px`;
+      initScrollPos = currentScrollPos;
+    });
+  }, []);
+
   return (
-    <section className="py-2 md:py-5 p-5 w-full flex justify-center bg-custom-1 border-b">
-      <hgroup className="w-full max-w-[1200px]">
-        <h3 className="text-xs md:text-sm font-medium opacity-80">
-          지역: 강서구
-        </h3>
-        <h1 className="text-xl md:text-3xl font-bold opacity-80">
-          <ClubIcon
-            className="inline mb-1.5 mr-2 text-custom-2"
-            strokeWidth={3}
-            size={18}
-          />
-          {title}
-        </h1>
-      </hgroup>
+    <section
+      ref={ref}
+      className="fixed z-10 top-14 md:top-20 py-2 md:py-4 p-5 w-full flex justify-center bg-custom-2 text-background duration-300"
+    >
+      <div className="md:px-5 w-full max-w-[1200px]">
+        <hgroup className="w-full">
+          <h1 className="text-lg md:text-3xl font-semibold">
+            <ClubIcon
+              className="hidden md:inline mb-1.5 mr-2"
+              strokeWidth={3}
+              size={16}
+            />
+            {title}
+          </h1>
+          <h3 className="-mt-1 md:mt-0 text-xs md:text-base font-medium">
+            강서구
+          </h3>
+        </hgroup>
+      </div>
     </section>
   );
 };

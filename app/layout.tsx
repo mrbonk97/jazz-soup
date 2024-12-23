@@ -24,7 +24,6 @@ export default function RootLayout({
         />
       </head>
       <body className={"antialiased"}>
-        {/* <Topnav /> */}
         {children}
         <Footer />
       </body>

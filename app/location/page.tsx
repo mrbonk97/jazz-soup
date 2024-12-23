@@ -20,7 +20,7 @@ export const generateMetadata = async ({
 
 const LocationPage = ({ searchParams }: Props) => {
   return (
-    <main className="pt-36 md:pt-60 flex flex-col items-center">
+    <main className="pt-24 md:pt-60 flex flex-col items-center">
       <TopnavLocation selectedLocation={searchParams.q} />
       <TopnavLocationSmall selectedLocation={searchParams.q} />
       <section className="p-5 pb-2 text-right w-full lg:max-w-[1200px]">
@@ -74,7 +74,7 @@ const JazzbarCard = ({
   return (
     <li>
       <Link
-        className="relative p-3 md:p-5 border-t md:border rounded-none flex flex-col-reverse md:flex-row justify-between md:justify-start gap-0 md:gap-5 hover:bg-custom-1/20 md:hover:rounded-lg duration-300"
+        className="relative p-3 md:p-5 border-t md:border rounded-none flex flex-col-reverse md:flex-row justify-between md:justify-start gap-0 md:gap-5 hover:bg-[#DBE2EF] md:hover:rounded-lg duration-300"
         href={`/location/${id}`}
       >
         <HeartIcon
@@ -108,7 +108,7 @@ const JazzbarCard = ({
                 {title}
               </h2>
               <MapPin
-                className="md:hidden ml-2 text-custom-2 text-xs inline"
+                className="md:hidden ml-2 mb-1 text-custom-2 text-xs inline"
                 size={12}
                 strokeWidth={3}
               />

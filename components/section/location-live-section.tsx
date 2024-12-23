@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 export const LocationLiveSection = () => {
   return (
     <section className="p-5 md:px-5 md:py-10 w-full max-w-[1200px] border-b">
-      <h3 className="text-xl font-bold opacity-80 text-custom-2 tracking-wider">
+      <h3 className="text-xl font-bold opacity-80 tracking-wider">
         오늘의 공연
       </h3>
       <Tabs defaultValue="first">
@@ -18,7 +18,10 @@ export const LocationLiveSection = () => {
             2부 공연: 21:00
           </TabsTrigger>
         </TabsList>
-        <TabsContent value="first" className="p-5 min-h-96 rounded bg-custom-1">
+        <TabsContent
+          value="first"
+          className="p-5 min-h-96 rounded bg-secondary"
+        >
           <div className="flex flex-col md:flex-row gap-5">
             <Image
               src={"/images/jazz-trio.jpg"}
@@ -40,7 +43,7 @@ export const LocationLiveSection = () => {
                 <li>베이스: 김동진</li>
                 <li>트럼펫: 김기태</li>
               </ul>
-              <Button className="mt-2 py-6 w-full rounded bg-custom-2 hover:bg-custom-3 text-custom-1">
+              <Button className="mt-2 py-6 w-full rounded bg-custom-2 hover:bg-custom-3 text-background">
                 <CitrusIcon strokeWidth={2} />
                 밴드 일정 보기
               </Button>
@@ -49,7 +52,7 @@ export const LocationLiveSection = () => {
         </TabsContent>
         <TabsContent
           value="second"
-          className="p-5 min-h-96 rounded bg-custom-1"
+          className="p-5 min-h-96 rounded bg-secondary"
         >
           <div className="h-80 p-5 flex2 flex-col gap-5 text-custom-2 font-medium">
             <BirdIcon size={48} />
