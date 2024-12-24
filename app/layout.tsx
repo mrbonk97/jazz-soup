@@ -1,7 +1,6 @@
 import "./globals.css";
 import "./font.css";
 import type { Metadata } from "next";
-import { Footer } from "@/components/nav/footer";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -23,10 +22,7 @@ export default function RootLayout({
           strategy="beforeInteractive"
         />
       </head>
-      <body className={"antialiased"}>
-        {children}
-        <Footer />
-      </body>
+      <body className={"antialiased"}>{children}</body>
     </html>
   );
 }

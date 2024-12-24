@@ -57,7 +57,7 @@ export default LocationPage;
 interface JazzbarCardProps {
   id: string;
   title: string;
-  description: string;
+  description: string | null;
   address1: string;
   contact?: string;
   imgUrl: string;

@@ -16,6 +16,18 @@
     format("woff2-variations");
 }
 
+@font-face {
+  font-family: "Pretendard Variable";
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/PretendardVariable.woff2") format("woff2-variations");
+}
+
 .eulyoo {
   font-family: "Eulyoo1945";
+}
+
+html {
+  font-family: "Pretendard Variable", Helvetica, sans-serif;
 }
