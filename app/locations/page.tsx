@@ -1,28 +1,31 @@
 import { TopnavLocation } from "@/components/nav/top-nav-2";
 import { TopnavLocationSmall } from "@/components/nav/top-nav-3";
-import { JAZZ_BAR } from "@/constants";
 import { HeartIcon, MapPin } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { LocationType } from "@/type";
+import { getLocations } from "@/actions/location";
 
 interface Props {
-  searchParams: { q: string | undefined };
+  searchParams: { gu: string | undefined };
 }
 
 export const generateMetadata = async ({
   searchParams,
 }: Props): Promise<Metadata> => {
   return {
-    title: `재즈수프: ${searchParams.q ? searchParams.q : "전체"}`,
+    title: `재즈수프: ${searchParams.gu ? searchParams.gu : "전체"}`,
   };
 };
 
-const LocationPage = ({ searchParams }: Props) => {
+const LocationPage = async ({ searchParams }: Props) => {
+  const LOCATION_LIST: LocationType[] = await getLocations(searchParams.gu);
+
   return (
     <main className="pt-24 md:pt-60 flex flex-col items-center">
-      <TopnavLocation selectedLocation={searchParams.q} />
-      <TopnavLocationSmall selectedLocation={searchParams.q} />
+      <TopnavLocation selectedLocation={searchParams.gu} />
+      <TopnavLocationSmall selectedLocation={searchParams.gu} />
       <section className="p-5 pb-2 text-right w-full lg:max-w-[1200px]">
         <h1 className="font-medium opacity-80">
           <MapPin
@@ -30,20 +33,21 @@ const LocationPage = ({ searchParams }: Props) => {
             strokeWidth={3}
             size={18}
           />
-          지역: {searchParams.q ? searchParams.q : "전체"}
+          지역: {searchParams.gu ? searchParams.gu : "전체"}
         </h1>
       </section>
       <section className="pt-0 p-5 w-full lg:max-w-[1200px]">
         <ul className="grid border-b grid-cols-1 lg:grid-cols-2 md:gap-5">
-          {JAZZ_BAR.map((item) => (
+          {LOCATION_LIST.map((item) => (
             <JazzbarCard
-              key={item.id}
-              id={item.id}
-              title={item.title}
-              description={item.description}
-              address1={item.address1}
-              imgUrl={item.img_url}
-              contact={item.contact_number}
+              key={item.location_id}
+              id={item.location_id}
+              title={item.name}
+              caption={item.caption}
+              address={item.address}
+              opening_hour={item.opening_hour}
+              imgUrl={item.image_url}
+              phone_number={item.phone_number}
             />
           ))}
         </ul>
@@ -57,18 +61,20 @@ export default LocationPage;
 interface JazzbarCardProps {
   id: string;
   title: string;
-  description: string | null;
-  address1: string;
-  contact?: string;
+  caption: string | null;
+  address: string;
+  opening_hour: string;
+  phone_number: string;
   imgUrl: string;
 }
 
 const JazzbarCard = ({
   id,
   title,
-  description,
-  address1,
-  contact,
+  caption,
+  address,
+  opening_hour,
+  phone_number,
   imgUrl,
 }: JazzbarCardProps) => {
   return (
@@ -92,9 +98,9 @@ const JazzbarCard = ({
             className="h-32 w-32 md:h-52 md:w-52 rounded-lg"
           />
           <ul className="flex flex-col gap-0.5 text-xs font-bold opacity-70">
-            <li className="md:hidden">{address1}</li>
-            <li className="md:hidden">{contact}</li>
-            <li className="md:hidden">10:30 ~ 22:30</li>
+            <li className="md:hidden">{address}</li>
+            <li className="md:hidden">{phone_number}</li>
+            <li className="md:hidden">{opening_hour}</li>
             <li className="mt-4 md:hidden text-sm">
               오늘 공연: 링티 레몬 퀸텟
             </li>
@@ -116,20 +122,18 @@ const JazzbarCard = ({
                 마곡
               </span>
             </div>
-            <p className="md:mt-1 text-sm font-medium opacity-70">
-              {description}
-            </p>
+            <p className="md:mt-1 text-sm font-medium opacity-70">{caption}</p>
             <ul className="mt-4 grid grid-cols-5 lg:gap-x-2 text-sm opacity-80">
               <li className="hidden md:block col-span-1">주소: </li>
               <li className="hidden md:block col-span-4 w-20 whitespace-nowrap">
-                {address1}
+                {address}
               </li>
               <li className="hidden md:block col-span-1">연락처: </li>
-              <li className="hidden md:block col-span-4">{contact}</li>
+              <li className="hidden md:block col-span-4">{phone_number}</li>
               <li className="hidden md:block col-span-1 whitespace-nowrap">
                 영업시간:
               </li>
-              <li className="hidden md:block col-span-4">10:30 ~ 22:30</li>
+              <li className="hidden md:block col-span-4">{opening_hour}</li>
             </ul>
           </hgroup>
           <h4 className="hidden md:block mt-6 text-lg font-medium text-center">

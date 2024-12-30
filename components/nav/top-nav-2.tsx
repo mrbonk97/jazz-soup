@@ -12,8 +12,8 @@ export const TopnavLocation = ({ selectedLocation }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const handleClick = (e: string) => {
-    if (selectedLocation == e) router.push(`/location`);
-    else router.push(`/location?q=${e}`);
+    if (selectedLocation == e) router.push(`/locations`);
+    else router.push(`/locations?gu=${e}`);
   };
 
   useEffect(() => {
