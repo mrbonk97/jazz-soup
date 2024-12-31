@@ -24,7 +24,7 @@ export default function Home() {
           <ul className="flex gap-5 md:gap-20 font-medium">
             <li role="button">
               <Link
-                href={"/location"}
+                href={"/locations"}
                 className="hover:text-custom-2 hover:underline underline-offset-4 duration-150"
               >
                 재즈바
@@ -32,7 +32,7 @@ export default function Home() {
             </li>
             <li role="button">
               <Link
-                href={"/live"}
+                href={"/lives"}
                 className="hover:text-custom-2 hover:underline underline-offset-4 duration-150"
               >
                 공연
@@ -49,7 +49,9 @@ export default function Home() {
           </ul>
           <ul className="flex gap-2">
             <li>
-              <Button variant={"secondary"}>로그인</Button>
+              <Button variant={"secondary"} className="rounded-none">
+                로그인
+              </Button>
             </li>
             <li>
               <Button className="rounded-none">회원가입</Button>
@@ -76,7 +78,7 @@ export default function Home() {
           />
           <Button
             variant="outline"
-            className="absolute right-2 bottom-2 h-12 w-40 rounded-none"
+            className="absolute right-2 bottom-2 h-12 w-40"
           >
             둘러보기
           </Button>

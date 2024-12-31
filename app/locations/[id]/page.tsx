@@ -3,7 +3,6 @@ import { LocationLiveSection } from "@/components/section/location-live-section"
 import { LocationMapSection } from "@/components/section/location-map-section";
 import { LocationScheduleSection } from "@/components/section/location-schedule-section";
 import { LocationTitleSection } from "@/components/section/location-title-section";
-import { JAZZ_BAR } from "@/constants";
 import { Metadata } from "next";
 
 interface Props {
@@ -23,11 +22,9 @@ Promise<Metadata> => {
 
 // TODO: DB에서 받아오기 const LocationDetailPage = ({ params }: Props) => {
 const LocationDetailPage = () => {
-  const data = JAZZ_BAR[0];
-
   return (
     <main className="pt-14 md:pt-40 flex flex-col items-center">
-      <LocationTitleSection title={data.title} />
+      <LocationTitleSection title={"glglgl"} />
       <LocationInfoSection />
       <LocationMapSection />
       <LocationLiveSection />
