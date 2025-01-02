@@ -20,3 +20,14 @@ export const getLocations = async (
   console.log("재즈바 리스트 조회, 검색어: ", gu);
   return result.json();
 };
+
+export const getLocationDetail = async (id: number) => {
+  const result = await fetch(`${BASE_URL}/api/locations/${id}`, {
+    headers: {
+      "Cache-Control": "no-store",
+    },
+  });
+
+  console.log("재즈바 조회, id: ", id);
+  return result.json();
+};

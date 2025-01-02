@@ -1,12 +1,12 @@
 "use client";
-import { ClubIcon } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 interface Props {
   title: string;
+  address: string;
 }
 
-export const LocationTitleSection = ({ title }: Props) => {
+export const LocationTitleSection = ({ title, address }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
 
   // 화면의 너비가 768 보다 작으면 상단바의 높이인 56px만큼 올림
@@ -35,16 +35,9 @@ export const LocationTitleSection = ({ title }: Props) => {
     >
       <div className="md:px-5 w-full max-w-[1200px]">
         <hgroup className="w-full">
-          <h1 className="text-lg md:text-3xl font-semibold">
-            <ClubIcon
-              className="hidden md:inline mb-1.5 mr-2"
-              strokeWidth={3}
-              size={16}
-            />
-            {title}
-          </h1>
-          <h3 className="-mt-1 md:mt-0 text-xs md:text-base font-medium">
-            강서구
+          <h1 className="text-lg md:text-3xl font-semibold">{title}</h1>
+          <h3 className="-mt-1 md:mt-0 text-xs md:text-base font-medium opacity-90">
+            {address}
           </h3>
         </hgroup>
       </div>

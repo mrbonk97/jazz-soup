@@ -23,7 +23,7 @@ export const TopnavLocationSmall = ({ selectedLocation }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const handleClick = (e: string) => {
-    if (selectedLocation == e) router.push(`/location`);
+    if (selectedLocation == e) router.push(`/locations`);
     else router.push(`/location?q=${e}`);
   };
 

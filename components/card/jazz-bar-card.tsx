@@ -20,10 +20,13 @@ export const JazzbarCard = ({
   imgUrl,
 }: JazzbarCardProps) => {
   return (
-    <li role="button" className="col-span-1">
+    <li
+      role="button"
+      className="col-span-1 border-b pb-5 sm:border-none sm:pb-0"
+    >
       <Link
         href={`/locations/${id}`}
-        className="relative block p-5 hover:bg-secondary duration-150 rounded-2xl"
+        className="relative block p-1 lg:p-5 hover:bg-transparent sm:hover:bg-secondary duration-150 rounded-2xl"
       >
         <button className="absolute top-8 right-8 h-8 w-8 flex2 rounded-full bg-background hover:bg-rose-200 hover:text-white duration-150">
           <HeartIcon size={16} />
@@ -33,7 +36,7 @@ export const JazzbarCard = ({
           alt={title}
           height={384}
           width={384}
-          className="h-72 w-full rounded-2xl object-cover"
+          className="h-52 sm:h-64 lg:h-72 w-full rounded-2xl object-cover"
         />
         <hgroup className="mt-2">
           <div className="flex justify-between items-center gap-5">

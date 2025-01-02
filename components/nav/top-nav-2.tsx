@@ -1,6 +1,6 @@
 "use client";
 import { LOCATION } from "@/constants";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 interface Props {
@@ -8,13 +8,7 @@ interface Props {
 }
 
 export const TopnavLocation = ({ selectedLocation }: Props) => {
-  const router = useRouter();
   const ref = useRef<HTMLDivElement>(null);
-
-  const handleClick = (e: string) => {
-    if (selectedLocation == e) router.push(`/locations`);
-    else router.push(`/locations?gu=${e}`);
-  };
 
   useEffect(() => {
     if (!ref.current) return;
@@ -37,19 +31,24 @@ export const TopnavLocation = ({ selectedLocation }: Props) => {
   return (
     <section
       ref={ref}
-      className="hidden md:flex items-center justify-center fixed z-10 top-20 p-5 px-10 w-full bg-custom-2 duration-300"
+      className="hidden md:flex fixed z-10 top-20 p-5 px-10 w-full items-center justify-center bg-custom-2 duration-300"
     >
-      <ul className="flex2 flex-wrap gap-2 lg:gap-4 text-sm font-bold lg:max-w-[1200px]">
+      <ul className="max-w-[1200px] flex2 flex-wrap gap-2 lg:gap-4 text-sm font-bold">
         {LOCATION.map((item) => {
+          const url =
+            item == selectedLocation ? "/locations" : `/locations?gu=${item}`;
+
           return (
-            <li
-              key={item}
-              role="button"
-              onClick={() => handleClick(item)}
-              aria-pressed={item == selectedLocation}
-              className="px-4 py-2 flex-shrink-0 rounded-md text-background hover:bg-background hover:text-custom-2 duration-150 aria-pressed:bg-background aria-pressed:text-custom-2 tracking-wider"
-            >
-              {item}
+            <li key={item} className="flex-shrink-0">
+              <Link
+                href={url}
+                aria-current={item == selectedLocation && "page"}
+                className={`px-4 py-2 rounded-md text-background hover:bg-background hover:text-custom-2 duration-150 tracking-wider
+                   ${item == selectedLocation && "bg-background text-custom-2"}
+                  `}
+              >
+                {item}
+              </Link>
             </li>
           );
         })}

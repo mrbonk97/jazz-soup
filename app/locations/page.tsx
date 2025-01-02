@@ -26,8 +26,8 @@ const LocationPage = async ({ searchParams }: Props) => {
   return (
     <>
       <main className="py-28 md:py-60 p-5 flex flex-col items-center">
-        <TopnavLocation selectedLocation={searchParams.gu} />
-        <TopnavLocationSmall selectedLocation={searchParams.gu} />
+        <TopnavLocation selectedLocation={location} />
+        <TopnavLocationSmall selectedLocation={location} />
         <div className="w-full max-w-[1500px]">
           <section className="pr-5 text-right">
             <MapPin
@@ -37,7 +37,7 @@ const LocationPage = async ({ searchParams }: Props) => {
             />
             <span className="font-medium opacity-80">{location}</span>
           </section>
-          <ul className="mt-5 grid grid-cols-3 gap-10">
+          <ul className="mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
             {LOCATION_LIST.map((item) => (
               <JazzbarCard
                 key={item.location_id}
