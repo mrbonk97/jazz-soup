@@ -5,12 +5,13 @@ import { Button } from "../ui/button";
 
 export const LocationLiveSection = () => {
   return (
-    <section className="p-5 md:px-5 md:py-10 w-full max-w-[1200px] border-b">
-      <h3 className="text-xl font-bold opacity-80 tracking-wider">
+    <section className="mt-5">
+      <div className="py-2 px-4 w-full bg-custom-2 text-background text-lg">
         오늘의 공연
-      </h3>
+      </div>
+
       <Tabs defaultValue="first">
-        <TabsList className="mt-5 h-14 px-2 w-full grid grid-cols-2 rounded-none">
+        <TabsList className="mt-2 h-14 px-2 w-full grid grid-cols-2 rounded-none">
           <TabsTrigger value="first" className="py-2 rounded-sm">
             1부 공연: 19:00
           </TabsTrigger>

@@ -31,9 +31,9 @@ export const LocationTitleSection = ({ title, address }: Props) => {
   return (
     <section
       ref={ref}
-      className="fixed z-10 top-14 md:top-20 py-2 md:py-4 p-5 w-full flex justify-center bg-custom-2 text-background duration-300"
+      className="fixed z-10 top-14 md:top-20 h-14 md:h-20 w-full flex2 bg-custom-2 text-background duration-300"
     >
-      <div className="md:px-5 w-full max-w-[1200px]">
+      <div className="px-5 w-full max-w-[1280px]">
         <hgroup className="w-full">
           <h1 className="text-lg md:text-3xl font-semibold">{title}</h1>
           <h3 className="-mt-1 md:mt-0 text-xs md:text-base font-medium opacity-90">

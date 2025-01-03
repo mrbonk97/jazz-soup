@@ -2,10 +2,10 @@ import { ConcertCalendar } from "../concert/concert-calendar";
 
 export const LocationScheduleSection = () => {
   return (
-    <section className="p-5 md:px-5 md:py-10 w-full max-w-[1200px]">
-      <h3 className="text-xl font-bold opacity-80 text-custom-2 tracking-wider">
+    <section className="mt-5">
+      <div className="py-2 px-4 w-full bg-custom-2 text-background text-lg">
         전체 일정
-      </h3>
+      </div>
       <div className="mt-5 flex flex-col md:flex-row items-center md:items-start gap-5">
         <ConcertCalendar />
         <ul className="w-full font-medium">
